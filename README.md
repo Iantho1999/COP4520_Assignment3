@@ -15,3 +15,7 @@ java Program
 For this assignment, I am using Java as the programming language.
 
 ### Part 1
+The problem proposed is that the servants had more presents than thank you cards. This could be due to a synchronization error when adding and removing from the chain of presents, and can be resolved by using a concurrent Linked List implementation. For this part, I have decided to implement the LazyList implementation shown in Chapter 9 of the textbook. This is because it only traverses the list once as opposed to Optimistic synchronization, thus proving to be more efficient when working with larger lists. 
+
+### Part 2
+Similar to the first part, I have used a LazyList implementation here as well. 

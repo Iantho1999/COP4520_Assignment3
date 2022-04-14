@@ -207,10 +207,17 @@ public class Program
         LazyList recordedTemperatures = new LazyList();
         Random r = new Random();
         Node temp;
+        ArrayList<Integer> temperatureArray = new ArrayList<>();
+        List<Integer> topFive;
+        long start, end;
 
         // Create sensors as threads
         Sensor[] sensors = new Sensor[NUM_SENSORS];
 
+        // Get the starting time before the threads run
+        start = System.currentTimeMillis();
+
+        // Start each thread individually
         for (i = 0; i < NUM_SENSORS; i++)
         {
             Sensor s = new Sensor(recordedTemperatures);
@@ -231,9 +238,35 @@ public class Program
 
         }
 
+        // Get the ending time after the threads have run, and print the time taken
+        end = System.currentTimeMillis();
+        System.out.println("Threads took " + (end - start) + "ms");
+        
+        System.out.println("--Report for Hour--");
+
+        // Get and print out the top 5 highest temperatures
+        System.out.println("Top 5 Highest Temperatures:");
+
         temp = recordedTemperatures.head.next;
 
-        System.out.println("--Report for Hour--");
+        while (temp.next != null)
+        {
+            temperatureArray.add(temp.key);
+            temp = temp.next;
+        }
+
+        // Get a list of the top five highest temperatures by getting a sublist of the array, and print its components
+        topFive = temperatureArray.subList(temperatureArray.size() - 5, temperatureArray.size());
+
+        for (i = 1; i <= 5; i++)
+        {
+            System.out.println(i + ". " + topFive.get(5 - i) + "F");
+        }
+
+        temp = recordedTemperatures.head.next;   
+
+
+        // Get and print out the top 5 lowest temperatures
         System.out.println("Top 5 Lowest Temperatures: ");
         for (i = 1; i <= 5; i++)
         {
@@ -241,7 +274,8 @@ public class Program
             temp = temp.next;
         }
 
-        System.out.println("Interval with largest temperature difference: Between " + (differenceEndInterval - 10) + " and " + differenceEndInterval + " minutes");
+        // Print out the interval with the greatest temperature difference
+        System.out.println("Interval with largest temperature difference: Between " + (differenceEndInterval - 10) + " and " + differenceEndInterval + " minutes.");
         
     }
 }

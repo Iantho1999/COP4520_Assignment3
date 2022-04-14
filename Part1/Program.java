@@ -174,6 +174,7 @@ public class Program
     {
         int i;
         LazyList presentChain = new LazyList();
+        long start, end;
 
 
         // Set up the unsorted present bag
@@ -187,6 +188,10 @@ public class Program
         // Create servants as threads
         Servant[] servants = new Servant[NUM_SERVANTS];
 
+        // Get the starting time before the threads run
+        start = System.currentTimeMillis();
+
+        // Start each thread individually
         for (i = 0; i < NUM_SERVANTS; i++)
         {
             Servant s = new Servant(presentChain);
@@ -206,6 +211,10 @@ public class Program
         {
 
         }
+
+        // Get the ending time after the threads have run, and print the time taken
+        end = System.currentTimeMillis();
+        System.out.println("Threads took " + (end - start) + "ms.");
 
         System.out.println("The servants have completed their task.");
         
