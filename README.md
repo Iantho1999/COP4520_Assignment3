@@ -20,8 +20,12 @@ The problem proposed is that the servants had more presents than thank you cards
 Upon successful compilation, the output should look like this:
 ![Part 1 Output](/Images/part1Output.PNG)
 
+As seen above, there are no issues regarding performance when testing on my machine.
+
 ### Part 2
-Similar to the first part, I have used a LazyList implementation here as well. 
+Similar to the first part, I have used a LazyList implementation here as well. In order to generate a random value between -100F and 70F inside of the threads in a safe and efficient manner, I use the ThreadLocalRandom type.
 
 Upon successful compilation, the output should look like this:
 ![Part 2 Output](/Images/part2Output.PNG)
+
+As seen above, there are no issues regarding performance with this program either on my machine. 
