@@ -13,3 +13,5 @@ java Program
 
 ### Overview
 For this assignment, I am using Java as the programming language.
+
+### Part 1
